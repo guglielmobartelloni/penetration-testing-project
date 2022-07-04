@@ -9,10 +9,12 @@ import (
 )
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
-	to := r.URL.Query().Get("to")
+	from := r.URL.Query().Get("from")
+	recipient := r.URL.Query().Get("recipient")
 	amount := r.URL.Query().Get("amount")
-	causal := r.URL.Query().Get("causal")
-	fmt.Fprintf(w, "To: "+to+" amount: "+amount+" causal: "+causal)
+	// causal := r.URL.Query().Get("causal")
+	fmt.Fprintf(w, "Transfer of "+amount+"$ from "+from+" to "+recipient+" complete")
+	fmt.Println("From: " + from + "\n Recipient: " + recipient + "\n amount: " + amount)
 }
 
 func main() {
