@@ -1,4 +1,4 @@
-# A purpeusoly vulnerable application
+# A purposely vulnerable application
 
 Tech used:
 - PHP
