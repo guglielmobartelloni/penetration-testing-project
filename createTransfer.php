@@ -38,17 +38,18 @@
         $causal=$_POST['causal'];
 
         //sanitaze parameters to prevent xss
-        $recipient = strip_tags($recipient);
-        $amount = strip_tags($amount);
-        $causal = strip_tags($causal);
+        // $recipient = htmlspecialchars($recipient);
+        // $amount = htmlspecialchars($amount);
+        // $causal = htmlspecialchars($causal);
 
         //This parameter in the real world has to be get from database
         $from=get_sender_from_coockie();
 
         $curl = curl_init();
 
-        $request_url="http://backend:8080?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
+        $request_url="http://backend:8081?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
 
+        //for testing purpouses
         echo $request_url;
 
         curl_setopt_array($curl, array(
