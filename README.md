@@ -3,6 +3,7 @@
 Tech used:
 - PHP
 - GoLang
+- Bootsrap
 - Docker
 
 ## Running
