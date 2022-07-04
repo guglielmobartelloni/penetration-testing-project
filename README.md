@@ -1,5 +1,10 @@
 # A purpeusoly vulnerable application
 
+Tech used:
+- PHP
+- GoLang
+- Docker
+
 ## Running
 
 First build the containers:
