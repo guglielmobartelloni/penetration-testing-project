@@ -47,7 +47,7 @@
 
         $curl = curl_init();
 
-        $request_url="http://localhost:8080?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
+        $request_url="http://backend:8080?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
 
         echo $request_url;
 
