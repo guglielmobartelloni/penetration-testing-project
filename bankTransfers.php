@@ -35,29 +35,55 @@
         <h1>Make a transfer</h1>
     </div>
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-6">
+        <table class="table table-borderless table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Sender</th>
+                    <th scope="col">Reciever</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Causal</th>
+                </tr>
+            </thead>
+            <tbody>
                 <?php
-                
-                $server="localhost";
-                $username="user";
-                $password="password";
-                $db_name="db";
-                
+
+                $server = "localhost";
+                $username = "user";
+                $password = "password";
+                $db_name = "db";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
                 // selecting data from db
-                $sql="SELECT * FROM bank_transfers;";
+                $sql = "SELECT * FROM bank_transfers;";
+                $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "id: " . $row["id"]. " - reciever: " . $row["reciever"]. " - sender: " . $row["sender"]. " - amount: " . $row["amount"]. " - causal: " . $row["causal"]. "<br>";
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+
+                        <tr>
+                            <th scope="row"><?= $row['id'] ?></th>
+                            <th><?= $row['sender'] ?></th>
+                            <th><?= $row['receiver'] ?></th>
+                            <th><?= $row['amount'] ?></th>
+                            <th><?= $row['causal'] ?></th>
+                        </tr>
+                <?php
                     }
                 } else {
                     echo "0 results";
                 }
-                
+
                 ?>
-            </div>
-        </div>
+            </tbody>
+        </table>
     </div>
 </body>
 
