@@ -7,8 +7,10 @@ services:
       - "80:80"
     depends_on:
       - database
+    networks:
+      - main-net
   database:
-    image: arm64v8/mysql:8-oracle
+    image: mysql:5.7
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
@@ -19,9 +21,15 @@ services:
       - '3306:3306'
     expose:
       - '3306'
+    networks:
+      - main-net
   backend:
     build: bank-transfer-api
     ports: 
       - "8081:8081"
     depends_on:
       - frontend
+    networks:
+      - main-net   
+networks:
+  main-net:

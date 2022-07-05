@@ -41,7 +41,7 @@
         $password="password";
         $db_name="db";
         
-        $conn = db_connection($sever, $username, $password, $db_name);
+        $conn = db_connection($server, $username, $password, $db_name);
         
         // create table if not exist
         $sql = "CREATE TABLE IF NOT EXIST bank_transfers(
