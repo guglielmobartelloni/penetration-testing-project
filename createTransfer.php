@@ -44,8 +44,8 @@
         $conn = db_connection($server, $username, $password, $db_name);
 
         // create table if not exist
-        $sql = "CREATE TABLE IF NOT EXIST bank_transfers(
-        id int AUTO_INCREMENT,
+        $sql = "CREATE TABLE IF NOT EXISTS bank_transfers(
+        id int AUTO_INCREMENT PRIMARY KEY,
         sender varchar(20),
         reciever varchar(20),
         amount int,
@@ -67,10 +67,10 @@
 
         // insert data into db
         $sql = "INSERT INTO bank_transfers(sender, reciever, amount, causal) VALUES(
-        $from,
-        $recipient, 
+        '$from',
+        '$recipient', 
         $amount,
-        $causal);";
+        '$causal');";
         if ($conn->query($sql) === TRUE) {
             echo "Data insert correctly";
         } else {
