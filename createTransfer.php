@@ -47,7 +47,7 @@
         $sql = "CREATE TABLE IF NOT EXISTS bank_transfers(
         id int AUTO_INCREMENT PRIMARY KEY,
         sender varchar(20),
-        reciever varchar(20),
+        receiver varchar(20),
         amount int,
         causal text);";
         if ($conn->query($sql) === TRUE) {
