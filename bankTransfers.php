@@ -39,6 +39,22 @@
             <div class="col-6">
                 <?php
                 
+                $server="localhost";
+                $username="user";
+                $password="password";
+                $db_name="db";
+                
+                // selecting data from db
+                $sql="SELECT * FROM bank_transfers;";
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "id: " . $row["id"]. " - reciever: " . $row["reciever"]. " - sender: " . $row["sender"]. " - amount: " . $row["amount"]. " - causal: " . $row["causal"]. "<br>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+                
                 ?>
             </div>
         </div>
