@@ -66,7 +66,7 @@
 
 
         // insert data into db
-        $sql = "INSERT INTO bank_transfers(sender, reciever, amount, causal) VALUES(
+        $sql = "INSERT INTO bank_transfers(sender, receiver, amount, causal) VALUES(
         '$from',
         '$recipient', 
         $amount,
