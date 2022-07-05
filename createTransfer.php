@@ -36,6 +36,25 @@
         $recipient=$_POST['recipient'];
         $amount=$_POST['amount'];
         $causal=$_POST['causal'];
+        $server="localhost";
+        $username="user";
+        $password="password";
+        $db_name="db";
+        
+        $conn = db_connection($sever, $username, $password, $db_name);
+        
+        // create table if not exist
+        $sql = "CREATE TABLE IF NOT EXIST bank_transfers(
+        id int AUTO_INCREMENT,
+        sender varchar(20),
+        reciever varchar(20),
+        amount int,
+        causal text);";
+        if ($conn->query($sql) === TRUE) {
+            echo "Table bank_transfers created successfully";
+        } else {
+            echo "Error creating table: " . $conn->error;
+        }
 
         //sanitaze parameters to prevent xss
         // $recipient = htmlspecialchars($recipient);
@@ -44,6 +63,19 @@
 
         //This parameter in the real world has to be get from database
         $from=get_sender_from_coockie();
+        
+        
+        // insert data into db
+        $sql = "INSERT INTO bank_transfers(sender, reciever, amount, causal) VALUES(
+        $from,
+        $recipient, 
+        $amount,
+        $causal);";
+        if ($conn->query($sql) === TRUE) {
+            echo "Data insert correctly";
+        } else {
+            echo "Error creating table: " . $conn->error;
+        }
 
         $curl = curl_init();
 
@@ -72,6 +104,15 @@
 
         function get_sender_from_coockie(){
             return "sender";
+        }
+        function db_connection($server, $username, $password, $db_name) {
+            // Create connection
+            $conn = new mysqli($server, $username, $password, $db_name);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            return $conn;
         }
         ?>
         <p class="display-3"><?php echo ($response); ?></p>
