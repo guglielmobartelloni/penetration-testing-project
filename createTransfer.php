@@ -36,7 +36,7 @@
         $recipient=$_POST['recipient'];
         $amount=$_POST['amount'];
         $causal=$_POST['causal'];
-        $server="localhost";
+        $server="database";
         $username="user";
         $password="password";
         $db_name="db";

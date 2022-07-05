@@ -48,7 +48,7 @@
             <tbody>
                 <?php
 
-                $server = "localhost";
+                $server = "database";
                 $username = "user";
                 $password = "password";
                 $db_name = "db";
