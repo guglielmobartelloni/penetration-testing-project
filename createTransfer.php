@@ -33,16 +33,16 @@
     <div class="container mt-5">
         <?php
         //Take parameters from post
-        $recipient=$_POST['recipient'];
-        $amount=$_POST['amount'];
-        $causal=$_POST['causal'];
-        $server="database";
-        $username="user";
-        $password="password";
-        $db_name="db";
-        
+        $recipient = $_POST['recipient'];
+        $amount = $_POST['amount'];
+        $causal = $_POST['causal'];
+        $server = "database";
+        $username = "user";
+        $password = "password";
+        $db_name = "db";
+
         $conn = db_connection($server, $username, $password, $db_name);
-        
+
         // create table if not exist
         $sql = "CREATE TABLE IF NOT EXIST bank_transfers(
         id int AUTO_INCREMENT,
@@ -62,9 +62,9 @@
         // $causal = htmlspecialchars($causal);
 
         //This parameter in the real world has to be get from database
-        $from=get_sender_from_coockie();
-        
-        
+        $from = get_sender_from_coockie();
+
+
         // insert data into db
         $sql = "INSERT INTO bank_transfers(sender, reciever, amount, causal) VALUES(
         $from,
@@ -79,7 +79,7 @@
 
         $curl = curl_init();
 
-        $request_url="http://backend:8081?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
+        $request_url = "http://backend:8081?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
 
         //for testing purpouses
         echo $request_url;
@@ -96,16 +96,18 @@
         ));
 
         $response = curl_exec($curl);
-        
+
         $err = curl_error($curl);
 
         curl_close($curl);
 
 
-        function get_sender_from_coockie(){
+        function get_sender_from_coockie()
+        {
             return "sender";
         }
-        function db_connection($server, $username, $password, $db_name) {
+        function db_connection($server, $username, $password, $db_name)
+        {
             // Create connection
             $conn = new mysqli($server, $username, $password, $db_name);
             // Check connection
