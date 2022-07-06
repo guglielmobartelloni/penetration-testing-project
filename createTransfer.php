@@ -30,7 +30,7 @@
                 </div>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                        Welcome <b>sender</b>
+                        Welcome <b>Elliot</b>
                         </li>
                     </ul>
             </div>
@@ -111,7 +111,7 @@
 
         function get_sender_from_coockie()
         {
-            return "sender";
+            return "Elliot";
         }
         function db_connection($server, $username, $password, $db_name)
         {

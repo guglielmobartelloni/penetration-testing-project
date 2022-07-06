@@ -30,7 +30,7 @@
                 </div>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                        Welcome <b>sender</b>
+                        Welcome <b>Elliot</b>
                         </li>
                     </ul>
             </div>
