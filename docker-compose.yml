@@ -10,7 +10,7 @@ services:
     networks:
       - main-net
   database:
-    image: mysql:5.7
+    image: arm64v8/mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
