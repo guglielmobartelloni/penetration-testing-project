@@ -25,8 +25,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="bankTransfers.php">Payment History</a>
                         </li>
+
                     </ul>
                 </div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        Welcome <b>sender</b>
+                        </li>
+                    </ul>
             </div>
         </nav>
     </div>
@@ -40,7 +46,7 @@
                 <form action="createTransfer.php" method="POST">
                     <div class="mb-3">
                         <label class="form-label">Recipient</label>
-                        <input type="text" name="recipient" class="form-control" >
+                        <input type="text" name="recipient" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Amount</label>

@@ -25,8 +25,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="bankTransfers.php">Payment History</a>
                         </li>
+
                     </ul>
                 </div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        Welcome <b>sender</b>
+                        </li>
+                    </ul>
             </div>
         </nav>
     </div>
@@ -35,7 +41,7 @@
         <h1>Make a transfer</h1>
     </div>
     <div class="container mt-5">
-        <table class="table table-borderless table-dark">
+        <table class="table table-striped table-dark">
             <thead>
                 <tr>
                     <th scope="col">Id</th>

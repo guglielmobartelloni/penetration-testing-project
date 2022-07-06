@@ -25,8 +25,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="bankTransfers.php">Payment History</a>
                         </li>
+
                     </ul>
                 </div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        Welcome <b>sender</b>
+                        </li>
+                    </ul>
             </div>
         </nav>
     </div>
@@ -51,7 +57,7 @@
         amount int,
         causal text);";
         if ($conn->query($sql) === TRUE) {
-            echo "Table bank_transfers created successfully";
+            // echo "Table bank_transfers created successfully";
         } else {
             echo "Error creating table: " . $conn->error;
         }
@@ -71,8 +77,9 @@
         '$recipient', 
         $amount,
         '$causal');";
+        echo $sql;
         if ($conn->query($sql) === TRUE) {
-            echo "Data insert correctly";
+            // echo "Data insert correctly";
         } else {
             echo "Error creating table: " . $conn->error;
         }
