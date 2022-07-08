@@ -48,7 +48,7 @@
                         <tr>
                             <th scope="row"><?= $row['id'] ?></th>
                             <th><?= $row['password'] ?></th>
-                            <th><?= $row['iban'] ?></th>
+                            <th><?= $row['card_number'] ?></th>
                         </tr>
                         <br>
                 <?php
