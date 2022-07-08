@@ -17,13 +17,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Assistance</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="bankTransfers.php">Payment History</a>
+                            <a class="nav-link active" href="bankTransfers.php">Payment History</a>
                         </li>
 
                     </ul>
@@ -38,7 +35,7 @@
     </div>
 
     <div class="container text-center">
-        <h1>Make a transfer</h1>
+        <h1>Transactions List</h1>
     </div>
     <div class="container mt-5">
         <table class="table table-striped table-dark">

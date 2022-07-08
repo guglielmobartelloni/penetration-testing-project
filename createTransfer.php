@@ -20,9 +20,6 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Assistance</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="bankTransfers.php">Payment History</a>
                         </li>
 
@@ -36,8 +33,24 @@
             </div>
         </nav>
     </div>
-    <div class="container mt-5">
+    <div class="container mt-5 text-center">
         <?php
+
+        function get_sender_from_coockie()
+        {
+            return "Elliot";
+        }
+        function db_connection($server, $username, $password, $db_name)
+        {
+            // Create connection
+            $conn = new mysqli($server, $username, $password, $db_name);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            return $conn;
+        }
+
         //Take parameters from post
         $recipient = $_POST['recipient'];
         $amount = $_POST['amount'];
@@ -77,54 +90,39 @@
         '$recipient', 
         $amount,
         '$causal');";
-        echo $sql;
-        if ($conn->query($sql) === TRUE) {
-            // echo "Data insert correctly";
-        } else {
-            echo "Error creating table: " . $conn->error;
-        }
+        // echo $sql;
+        if ($conn->query($sql) === FALSE) {
+            echo "Error executing query: " . $conn->error;
+        }else{
 
-        $curl = curl_init();
+            $curl = curl_init();
 
-        $request_url = "http://backend:8081?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
+            $request_url = "http://backend:8081?recipient=$recipient&from=$from&amount=$amount&causal=$causal";
 
-        //for testing purpouses
-        echo $request_url;
+            //for testing purpouses
+            // echo $request_url;
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $request_url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-                "cache-control: no-cache"
-            ),
-        ));
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $request_url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "cache-control: no-cache"
+                ),
+            ));
 
-        $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-        $err = curl_error($curl);
+            $err = curl_error($curl);
 
-        curl_close($curl);
+            curl_close($curl);
 
 
-        function get_sender_from_coockie()
-        {
-            return "Elliot";
-        }
-        function db_connection($server, $username, $password, $db_name)
-        {
-            // Create connection
-            $conn = new mysqli($server, $username, $password, $db_name);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            return $conn;
-        }
         ?>
-        <p class="display-3"><?php echo ($response); ?></p>
+        <p class="display-6"><?php echo ($response); ?></p>
+        <?php } ?>
         <a href="/">Go back home</a>
     </div>
 </body>
