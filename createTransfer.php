@@ -36,20 +36,6 @@
     <div class="container mt-5 text-center">
         <?php
 
-        function get_sender_from_coockie()
-        {
-            return "Elliot";
-        }
-        function db_connection($server, $username, $password, $db_name)
-        {
-            // Create connection
-            $conn = new mysqli($server, $username, $password, $db_name);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            return $conn;
-        }
 
         //Take parameters from post
         $recipient = $_POST['recipient'];
@@ -60,7 +46,13 @@
         $password = "password";
         $db_name = "db";
 
-        $conn = db_connection($server, $username, $password, $db_name);
+
+        // Create connection
+        $conn = new mysqli($server, $username, $password, $db_name);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
         // create table if not exist
         $sql = "CREATE TABLE IF NOT EXISTS bank_transfers(
@@ -126,5 +118,11 @@
         <a href="/">Go back home</a>
     </div>
 </body>
+                               <?php
+        function get_sender_from_coockie()
+        {
+            return "Elliot";
+        }
+                               ?>
 
 </html>
