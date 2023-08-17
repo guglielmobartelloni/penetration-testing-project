@@ -1,14 +1,3 @@
----
-bibliography:
-- references.bib
-title: Penetration Test Report
----
-
-::: titlepage
-::: center
-[]{.smallcaps}\
-
-![image](images/general/logo.png){width="\\textwidth/2"}
 
 ------------------------------------------------------------------------
 
@@ -16,13 +5,6 @@ title: Penetration Test Report
 **Penetration Test Report**
 
 ------------------------------------------------------------------------
-
-\
-Conducted by:
-
-2023-08-17
-:::
-:::
 
 # About the Vulnerable Application
 
