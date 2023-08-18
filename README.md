@@ -13,7 +13,7 @@ client can make money transfers to other people (with a simple form).
 Moreover the client can view the list of transactions made.
 
 The code of the entire application is on
-[[Github](https://github.com/guglielmobartelloni/penetration-testing-project)]{style="color: dkblue"}
+[[Github](https://github.com/guglielmobartelloni/penetration-testing-project)]
 at:
 
 <https://github.com/guglielmobartelloni/penetration-testing-project>.
@@ -27,7 +27,7 @@ When a transaction is created the PHP server creates a row into the
 database and makes a request to an external API written in Go, this API
 is responsible of making the transfer and it returns the outcome:
 
-![image](images/appFlow/MoneyTransferFlow.png){width="\\textwidth"}
+![image](images/appFlow/MoneyTransferFlow.png)
 
 ### PHP Appliation
 
